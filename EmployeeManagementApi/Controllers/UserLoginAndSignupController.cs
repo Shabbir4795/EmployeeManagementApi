@@ -1,4 +1,5 @@
-﻿using EmployeeManagementApi.Model.UserAuthentication;
+﻿using EmployeeManagementApi.Model.ChangePassword;
+using EmployeeManagementApi.Model.UserAuthentication;
 using EmployeeManagementApi.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,11 +14,17 @@ namespace EmployeeManagementApi.Controllers
         {
             _userAuthentication = userAuth;
         }
-        [HttpPost]        
-        public UserLoginResponse Login(UserLoginRequest loginRequest)
+
+        [HttpGet]
+        public UserLoginResponse GetString(string userName)
         {
-            return _userAuthentication.Login(loginRequest);
-            //return "OK";
+            return _userAuthentication.Signin(userName);
+        }
+
+        [HttpPut]
+        public ChangePasswordResponse ChangeUserPassword([FromBody] ChangePasswordRequest changePasswordRequest)
+        {
+            return _userAuthentication.UpdatePassword(changePasswordRequest);
         }
     }
 }

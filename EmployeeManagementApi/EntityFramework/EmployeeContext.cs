@@ -41,5 +41,10 @@ namespace EmployeeManagementApi.EntityFramework
                     .HasColumnType("date");
             });
         }
+
+        public Task<int> SaveChangesAsync()
+        {
+            return base.SaveChangesAsync();
+        }
     }
 }

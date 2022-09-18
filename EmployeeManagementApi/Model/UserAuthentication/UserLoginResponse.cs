@@ -2,7 +2,8 @@
 {
     public class UserLoginResponse
     {
-        public bool LoginSuccess { get; set; }
-        public bool PasswordUpdateRequired { get; set; }
+        public string? LoginPassword { get; set; }
+        public string PasswordUpdateRequired { get; set; }
+        public string AccountExists { get; set; }
     }
 }
