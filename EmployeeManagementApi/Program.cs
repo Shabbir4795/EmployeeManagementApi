@@ -1,5 +1,6 @@
 using EmployeeManagementApi.EntityFramework;
 using EmployeeManagementApi.EntityFramework.Interfaces;
+using EmployeeManagementApi.Middleware;
 using EmployeeManagementApi.Services;
 using EmployeeManagementApi.Services.Interfaces;
 
@@ -30,7 +31,7 @@ app.UseCors(x => x
             .AllowAnyMethod()
             .AllowAnyHeader());
 
-//app.UseHttpsRedirection();
+app.UseMiddleware<ApiKeyMiddleware>();
 
 app.UseAuthorization();
 
